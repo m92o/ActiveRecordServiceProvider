@@ -1,11 +1,11 @@
 <?php
 
-namespace Extensions\ActiveRecordExtension;
+namespace Provider\ActiveRecordServiceProvider;
 
-use Silex\ExtensionInterface;
+use Silex\ServiceProviderInterface;
 use Silex\Application;
 
-class ActiveRecordExtension implements ExtensionInterface {
+class ActiveRecordServiceProvider implements ServiceProviderInterface {
 
 	public function register(Application $app) {
 		require_once $app['ar.lib_path'].'/ActiveRecord.php';

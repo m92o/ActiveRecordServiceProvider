@@ -1,7 +1,7 @@
-PHP-ActiveRecord Extension
-==========================
+PHP-ActiveRecord Service Provider for Silex
+===========================================
 
-PHP-ActiveRecord Extension provieds easy integration with [PHP-ActiveRecord](https://github.com/kla/php-activerecord) for easy database access.
+PHP-ActiveRecord Service Provider provieds easy integration with [PHP-ActiveRecord](https://github.com/kla/php-activerecord) for easy database access.
 
 Parameters
 ----------
@@ -20,20 +20,20 @@ Installation
     cd vendor
     git clone https://github.com/kla/php-activerecord.git
     cd ..
-    cd Extensions
-    git clone https://RafalFilipek@github.com/RafalFilipek/ActiveRecordExtension.git
+    cd Provider
+    git clone https://github.com/m92o/ActiveRecordServiceProvider.git
     cd ..
     mkdir Models
 
 Registering
 -----------
-    use Extensions\ActiveRecordExtension\ActiveRecordExtension;
+    use Provider\ActiveRecordServiceProvider\ActiveRecordServiceProvider;
 
-    $app['autoloader']->registerNamespace('Extensions', __DIR__);
+    $app['autoloader']->registerNamespace('Provider', __DIR__);
     $app['autoloader']->registerNamespace('Models', __DIR__);
-    $app->register(new ActiveRecordExtension(),
+    $app->register(new ActiveRecordServiceProvider(),
     	array(
-    		'ar.lib_path'	=> __DIR__.'/vendor/php-activerecord',
+    		'ar.lib_path' => __DIR__.'/vendor/php-activerecord',
     		'ar.default_connection' => 'development',
     		'ar.connections' => array(
     			'development' => 'mysql://username:password@localhost/database_name'
